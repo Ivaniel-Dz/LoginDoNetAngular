@@ -73,5 +73,14 @@ namespace LoginAPI.Controllers
                 return StatusCode(StatusCodes.Status200OK, new { isSuccess = true, token = _jwtUtil.generarJWT(userFound) });
             }
         }
+
+        [HttpGet]
+        [Route("validarToken")] // Ruta: api/acceso/login
+        public IActionResult ValidarToken([FromQuery]string token)
+        {
+            bool respuesta = _jwtUtil.validarToken(token);
+            return StatusCode(StatusCodes.Status200OK, new { isSuccess = respuesta }); // Usuario no encontrado
+        }
+
     }
 }

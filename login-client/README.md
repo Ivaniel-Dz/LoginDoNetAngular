@@ -1,59 +1,73 @@
-# LoginClient
+# Login Client (Frontend)
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.1.7.
+## Conceptos Principales de un proyecto de Angular
 
-## Development server
+### 1. **Guards** 🛑  
+   - **Función:** Controlan el acceso a rutas.  
+   - **Cuándo usarlos:** Para restringir acceso a usuarios no autenticados o sin permisos.  
+   - **Contenido:** Implementan `CanActivate`, `CanDeactivate`, `CanLoad`, etc.
 
-To start a local development server, run:
+### 2. **Interceptor** 🛠️  
+   - **Función:** Modifican o interceptan solicitudes HTTP.  
+   - **Cuándo usarlos:** Para añadir tokens de autenticación, logs o manejar errores globales.  
+   - **Contenido:** Implementa `HttpInterceptor` y se usa con `HTTP_INTERCEPTORS`.
 
+### 3. **Interfaces** 📄  
+   - **Función:** Definen estructuras de datos.  
+   - **Cuándo usarlas:** Para tipar datos y mejorar el código.  
+   - **Contenido:** Definen propiedades (`id: number`, `name: string`, etc.).
+
+### 4. **Services** 🔄  
+   - **Función:** Manejan lógica de negocio y llamadas a APIs.  
+   - **Cuándo usarlos:** Para compartir datos y lógica en toda la app.  
+   - **Contenido:** Métodos como `getUsers()`, `postUser(data)`, etc.
+
+### 5. **Repositories** 🗄️  
+   - **Función:** Abstracción para interactuar con APIs o bases de datos.  
+   - **Cuándo usarlos:** Para centralizar llamadas HTTP en un solo lugar.  
+   - **Contenido:** Métodos como `fetchUsers()`, `createUser(user)`. 
+
+### 6. **Settings** ⚙️  
+   - **Función:** Almacena configuraciones globales.  
+   - **Cuándo usarlos:** Para constantes como URLs de API, claves de configuración.  
+   - **Contenido:** Variables como `API_URL`, `APP_VERSION`.
+
+### 7. **Custom** 🎨  
+   - **Función:** Contiene código personalizado como pipes, directivas o utilidades.  
+   - **Cuándo usarlos:** Para funcionalidades específicas reutilizables.  
+   - **Contenido:** Pipes (`CustomDatePipe`), directivas (`HighlightDirective`).
+
+### 8. **app.router** 🚏  
+   - **Función:** Define las rutas de la aplicación.  
+   - **Cuándo usarlo:** Para configurar navegación y lazy loading.  
+   - **Contenido:** Array de rutas con `{ path: '', component: HomeComponent }`.
+
+### 9. **Environments** 🌍  
+   - **Función:** Gestiona configuraciones para distintos entornos (dev, prod).  
+   - **Cuándo usarlo:** Para cambiar URLs o flags según el ambiente.  
+   - **Contenido:** Archivos `environment.ts` con `production: false`. 
+
+--------------------------------------------------------
+## Configuración del Proyecto en Local
+- Clona el proyecto
+- Instalar Angular CLI (si no lo tienes)
+
+### Instalación de Dependencias del Proyecto
+```bash
+npm install
+```
+
+###  Verifica Angular Material
+- Si el proyecto usa Angular Material, asegúrate de que esté correctamente configurado.
+- Si necesitas agregar Angular Material a un proyecto existente, puedes hacerlo con:
+```bash
+ng add @angular/material
+```
+>Esto te guiará a través de la configuración de Angular Material, incluyendo la selección de un tema y la configuración de animaciones.
+
+### Ejecuta el proyecto
 ```bash
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+> Esto levantará un servidor de desarrollo y podrás acceder a la aplicación en ``http://localhost:4200``.
