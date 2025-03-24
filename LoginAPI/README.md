@@ -149,7 +149,7 @@ La autenticación JWT en .NET es una opción poderosa para aplicaciones modernas
 
 El uso de JWT debe evaluarse según los requisitos del proyecto para aprovechar sus ventajas y mitigar sus limitaciones.
 
-## Instalación de dependencias:
+## Instalación del Proyecto en Local:
 ### Restaurar dependencias
 ```bash
 dotnet restore
@@ -158,3 +158,27 @@ dotnet restore
 ```bash
 dotnet list package
 ```
+
+### Agrega las migraciones
+```bash
+Add-Migration "PrimeraMigracion"
+```
+
+### Actualiza la Base de Datos
+```bash
+Update-Database
+```
+> Si no tiene la base de datos creada, lo crea o si ya lo tiene solo agrega las tablas.
+
+### Ejecuta el Proyecto
+- Desde Visual Studio
+- o Por Comando:
+```bash
+dotnet watch run
+```
+
+### Remueve las Migraciones (Opcional)
+```bash
+Remove-Migration
+```
+> Si tienes problemas con la creación de las tablas o base de datos, elimina las migraciones para crear las tablas sin errores.
